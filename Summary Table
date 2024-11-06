@@ -1,0 +1,23 @@
+## Concurrency Approaches in iOS (Swift)
+
+Here’s a summary of the different concurrency approaches available in iOS development and when to use each:
+
+| Approach       | Best For                                    | Pros                                           | Cons                                         |
+|----------------|---------------------------------------------|------------------------------------------------|----------------------------------------------|
+| **GCD**        | Simple tasks, UI updates                    | Lightweight, low-level                         | Less readable for complex workflows          |
+| **OperationQueue** | Complex dependencies, cancellable tasks | Modular, dependency control                    | More overhead than GCD                       |
+| **Thread**     | Legacy support, direct thread control       | Full control over thread lifecycle             | Error-prone, rarely needed in modern Swift   |
+| **Async/Await**| Simple async tasks, readability             | Structured, readable, native in Swift          | Limited support for dependencies             |
+| **Actors**     | Shared mutable state, concurrency safety    | Simplifies concurrency, prevents data races    | Requires Swift 5.5 and above                 |
+| **Combine**    | Event-driven, stream-based programming      | Reactive, chainable data transformations       | Steeper learning curve, extra memory usage   |
+
+### When to Use Each Approach
+
+- **GCD**: Use for simple asynchronous tasks and background operations, especially if you need low-level control over queues.
+- **OperationQueue**: Use when you need more control over task dependencies, cancellation, or scheduling priorities.
+- **Thread**: Only use if you need direct control over thread management (typically in legacy code).
+- **Async/Await**: Best for modern Swift projects requiring asynchronous tasks with clean, readable code.
+- **Actors**: Ideal for managing shared state safely in concurrent environments.
+- **Combine**: Use when you need to handle streams of data, reactive programming, or real-time data updates.
+
+Choose the right concurrency approach based on your project requirements to ensure your code is both efficient and easy to maintain.
